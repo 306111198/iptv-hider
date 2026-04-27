@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IPTV跳转</title>
+</head>
+<body>
+    <h1>正在跳转...</h1>
+    <script>
+        const channels = {
+            'cctv1': 'http://你的真实地址1',
+            'cctv2': 'http://你的真实地址2'
+        };
+        
+        const key = new URLSearchParams(location.search).get('key');
+        const realUrl = channels[key];
+        
+        if (realUrl) {
+            location.href = realUrl;
+        } else {
+            document.body.innerHTML = '<h2>频道不存在: ' + key + '</h2>';
+        }
+    </script>
+</body>
+</html>
